@@ -1,0 +1,53 @@
+{
+  "name": "es-alive-client",
+  "productName": "ES Alive Client",
+  "version": "1.0.0",
+  "description": "Client for Endless Sky Alive, semi-multiplayer mod",
+  "main": "main.js",
+  "standard": {
+    "globals": [
+      "$",
+      "jQuery",
+      "fetch"
+    ],
+    "ignore": [
+      "node_modules/**"
+    ],
+    "parser": "babel-eslint",
+    "envs": [
+      "jest",
+      "mocha",
+      "node",
+      "electron"
+    ]
+  },
+  "scripts": {
+    "start": "NODE_PATH=src node main.js --dev",
+    "package": "build",
+    "test": "NODE_ENV=test NODE_PATH=. mocha --recursive tests",
+    "test-watch": "nodemon --exec 'npm test'",
+    "lint": "standard",
+    "lint-fix": "standard --fix"
+  },
+  "build": {
+    "files": "!build-assets${/*}",
+    "appId": "com.CodeDraken.ESAlive"
+  },
+  "author": "CodeDraken",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.6",
+    "babel-preset-env": "^1.7.0",
+    "electron": "^2.0.8",
+    "electron-builder": "^20.28.2",
+    "expect": "^23.5.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3",
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "normalize.css": "^8.0.0"
+  }
+}
