@@ -1,5 +1,7 @@
-const validateShip = shipObj => {
+const ships = require('data/json/sorted-game-data/ship.json')
 
+const validateShip = shipObj => {
+  return !!ships.find(ship => shipObj._value.replace(/"/g, '') === ship._value.replace(/"/g, ''))
 }
 
 module.exports = validateShip

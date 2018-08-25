@@ -1,3 +1,4 @@
 module.exports = {
-  validateShip: require('./validateShip')
+  validateShip: require('./validateShip'),
+  validateOutfits: require('./validateOutfits')
 }

@@ -1,16 +1,25 @@
+// old data reader project TODO: needs updating
+
 const firstNonQuotedSpace = (str) => {
   str = str.trim()
   let quoteBalance = 0
+  let tildeBalance = 0
 
   // no quotes
   if (!/"/g.test(str)) return str.indexOf(' ')
 
   for (let i = 0; i < str.length; i++) {
     const char = str[i]
+    const charIsQuote = char === '"'
+    const charIsTilde = char === '`'
 
-    if (char === '"') quoteBalance++
+    if (charIsQuote) quoteBalance++
+    if (charIsTilde) tildeBalance++
 
-    if (char === ' ' && quoteBalance % 2 === 0) return i
+    const balancedQuotes = quoteBalance % 2 === 0
+    const balancedTilde = tildeBalance % 2 === 0
+
+    if (char === ' ' && balancedQuotes && balancedTilde) return i
   }
 
   return -1
