@@ -1,6 +1,7 @@
 const dataReader = require('scripts/data-tools/data-reader')
 
 /**
+ * Synchronous
  * Takes pilot file, parses it into JSON then returns the bits we want
  * @param {string} pilotFile - PilotFile as a string from readFile
  * @returns {Object} - Pilot object with relations {Object}, ships {Array}, and credits {string}

@@ -5,6 +5,7 @@ const { promisify } = require('util')
 const readdir = promisify(fs.readdir)
 
 /**
+ * Asynchronous
  * Returns the pilot names ( filename without extension )
  * Does not include backup saves
  * @param {string} dir - The directory of the game saves/plugins

@@ -1273,10 +1273,8 @@
       "\"Hai Fissure Batteries\"": 1,
       "\"Hai Corundum Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": 1,
-      "`\"Basrem\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ],
+      "`\"Basrem\" Atomic Thruster`": 1,
+      "`\"Basrem\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     },
     "engine": [
@@ -1302,10 +1300,8 @@
       "\"Hai Williwaw Cooling\"": 1,
       "\"Quantum Keystone\"": 1,
       "\"Pulse Rifle\"": 1,
-      "`\"Benga\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ],
+      "`\"Benga\" Atomic Thruster`": 1,
+      "`\"Benga\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -1338,7 +1334,7 @@
       "\"Railgun Slug\"": "160",
       "\"Sand Cell\"": 1,
       "\"Hai Chasm Batteries\"": 1,
-      "`\"Baellie\"": "Atomic Engines`"
+      "`\"Baellie\" Atomic Engines`": 1
     },
     "engine": "0 27",
     "gun": "0 -27 \"Railgun\"",
@@ -1380,8 +1376,8 @@
       "\"Hai Corundum Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": 1,
       "\"Quantum Keystone\"": 1,
-      "`\"Benga\"": "Atomic Thruster`",
-      "`\"Biroo\"": "Atomic Steering`",
+      "`\"Benga\" Atomic Thruster`": 1,
+      "`\"Biroo\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     },
     "engine": [
@@ -1413,8 +1409,8 @@
       "\"Hai Gorge Batteries\"": 1,
       "\"Hai Corundum Regenerator\"": 1,
       "\"Pulse Rifle\"": "2",
-      "`\"Biroo\"": "Atomic Thruster`",
-      "`\"Benga\"": "Atomic Steering`",
+      "`\"Biroo\" Atomic Thruster`": 1,
+      "`\"Benga\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -1455,8 +1451,8 @@
       "\"Hai Chasm Batteries\"": 1,
       "\"Hai Gorge Batteries\"": 1,
       "\"Geode Reactor\"": 1,
-      "`\"Benga\"": "Atomic Thruster`",
-      "`\"Biroo\"": "Atomic Steering`",
+      "`\"Benga\" Atomic Thruster`": 1,
+      "`\"Biroo\" Atomic Steering`": 1,
       "\"Hai Williwaw Cooling\"": "3",
       "\"Hyperdrive\"": 1
     },
@@ -1533,8 +1529,8 @@
       "\"Hai Diamond Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": "2",
       "\"Quantum Keystone\"": 1,
-      "`\"Bondir\"": "Atomic Thruster`",
-      "`\"Bufaer\"": "Atomic Steering`",
+      "`\"Bondir\" Atomic Thruster`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     },
     "engine": [
@@ -1584,8 +1580,8 @@
       "\"Fuel Pod\"": "3",
       "\"Hai Williwaw Cooling\"": "4",
       "\"Pulse Rifle\"": "55",
-      "`\"Bondir\"": "Atomic Thruster`",
-      "`\"Bufaer\"": "Atomic Steering`",
+      "`\"Bondir\" Atomic Thruster`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
       "\"Jump Drive\"": 1
     },
     "gun": [
@@ -1618,8 +1614,8 @@
       "\"Fuel Pod\"": "3",
       "\"Hai Williwaw Cooling\"": "6",
       "\"Pulse Rifle\"": "47",
-      "`\"Bondir\"": "Atomic Thruster`",
-      "`\"Bufaer\"": "Atomic Steering`",
+      "`\"Bondir\" Atomic Thruster`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
       "\"Jump Drive\"": 1
     }
   },
@@ -1636,8 +1632,8 @@
       "\"Hai Diamond Regenerator\"": "2",
       "\"Hai Williwaw Cooling\"": "3",
       "\"Pulse Rifle\"": "27",
-      "`\"Bondir\"": "Atomic Thruster`",
-      "`\"Bufaer\"": "Atomic Steering`",
+      "`\"Bondir\" Atomic Thruster`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     },
     "gun": [
@@ -1665,8 +1661,8 @@
       "\"Hai Williwaw Cooling\"": "2",
       "\"Quantum Keystone\"": 1,
       "\"Pulse Rifle\"": "32",
-      "`\"Bondir\"": "Atomic Thruster`",
-      "`\"Bufaer\"": "Atomic Steering`",
+      "`\"Bondir\" Atomic Thruster`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -1712,9 +1708,9 @@
       "\"Hai Diamond Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": "6",
       "\"Quantum Keystone\"": 1,
-      "`\"Benga\"": "Atomic Steering`",
-      "`\"Bufaer\"": "Atomic Steering`",
-      "`\"Bondir\"": "Atomic Thruster`",
+      "`\"Benga\" Atomic Steering`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
+      "`\"Bondir\" Atomic Thruster`": 1,
       "\"Hyperdrive\"": 1
     },
     "engine": [
@@ -1770,9 +1766,9 @@
       "\"Hai Diamond Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": "6",
       "\"Pulse Rifle\"": "86",
-      "`\"Benga\"": "Atomic Steering`",
-      "`\"Bufaer\"": "Atomic Steering`",
-      "`\"Bondir\"": "Atomic Thruster`",
+      "`\"Benga\" Atomic Steering`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
+      "`\"Bondir\" Atomic Thruster`": 1,
       "\"Jump Drive\"": 1
     }
   },
@@ -1790,9 +1786,9 @@
       "\"Hai Diamond Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": "8",
       "\"Pulse Rifle\"": "71",
-      "`\"Benga\"": "Atomic Steering`",
-      "`\"Bufaer\"": "Atomic Steering`",
-      "`\"Bondir\"": "Atomic Thruster`",
+      "`\"Benga\" Atomic Steering`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
+      "`\"Bondir\" Atomic Thruster`": 1,
       "\"Jump Drive\"": 1
     },
     "gun": [
@@ -1818,9 +1814,9 @@
       "\"Hai Diamond Regenerator\"": "2",
       "\"Hai Williwaw Cooling\"": "6",
       "\"Pulse Rifle\"": "68",
-      "`\"Benga\"": "Atomic Steering`",
-      "`\"Bufaer\"": "Atomic Steering`",
-      "`\"Bondir\"": "Atomic Thruster`",
+      "`\"Benga\" Atomic Steering`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
+      "`\"Bondir\" Atomic Thruster`": 1,
       "\"Jump Drive\"": 1
     }
   },
@@ -1838,9 +1834,9 @@
       "\"Hai Diamond Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": "8",
       "\"Pulse Rifle\"": "62",
-      "`\"Benga\"": "Atomic Steering`",
-      "`\"Bufaer\"": "Atomic Steering`",
-      "`\"Bondir\"": "Atomic Thruster`",
+      "`\"Benga\" Atomic Steering`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
+      "`\"Bondir\" Atomic Thruster`": 1,
       "\"Hyperdrive\"": 1
     },
     "gun": [
@@ -1866,9 +1862,9 @@
       "\"Hai Diamond Regenerator\"": "2",
       "\"Hai Williwaw Cooling\"": "6",
       "\"Pulse Rifle\"": "59",
-      "`\"Benga\"": "Atomic Steering`",
-      "`\"Bufaer\"": "Atomic Steering`",
-      "`\"Bondir\"": "Atomic Thruster`",
+      "`\"Benga\" Atomic Steering`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
+      "`\"Bondir\" Atomic Thruster`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -1904,10 +1900,8 @@
       "Supercapacitor": 1,
       "\"Hai Williwaw Cooling\"": 1,
       "\"Pulse Rifle\"": 1,
-      "`\"Basrem\"": [
-        "Atomic Steering`",
-        "Atomic Thruster`"
-      ]
+      "`\"Basrem\" Atomic Steering`": 1,
+      "`\"Basrem\" Atomic Thruster`": 1
     },
     "engine": [
       "-15 30",
@@ -1931,10 +1925,8 @@
       "\"Hai Williwaw Cooling\"": 1,
       "\"Quantum Keystone\"": 1,
       "\"Pulse Rifle\"": 1,
-      "`\"Basrem\"": [
-        "Atomic Steering`",
-        "Atomic Thruster`"
-      ]
+      "`\"Basrem\" Atomic Steering`": 1,
+      "`\"Basrem\" Atomic Thruster`": 1
     }
   },
   {
@@ -1975,10 +1967,8 @@
       "\"Hai Diamond Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": 1,
       "\"Quantum Keystone\"": 1,
-      "`\"Benga\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ],
+      "`\"Benga\" Atomic Thruster`": 1,
+      "`\"Benga\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     },
     "engine": [
@@ -2018,10 +2008,8 @@
       "\"Hai Williwaw Cooling\"": 1,
       "\"Quantum Keystone\"": 1,
       "\"Pulse Rifle\"": "8",
-      "`\"Benga\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ],
+      "`\"Benga\" Atomic Thruster`": 1,
+      "`\"Benga\" Atomic Steering`": 1,
       "\"Jump Drive\"": 1
     }
   },
@@ -2038,10 +2026,8 @@
       "\"Hai Diamond Regenerator\"": 1,
       "\"Hai Williwaw Cooling\"": 1,
       "\"Pulse Rifle\"": "3",
-      "`\"Benga\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ]
+      "`\"Benga\" Atomic Thruster`": 1,
+      "`\"Benga\" Atomic Steering`": 1
     }
   },
   {
@@ -4870,7 +4856,7 @@
       "\"Hai Williwaw Cooling\"": 1,
       "\"Hai Corundum Regenerator\"": 1,
       "\"Intrusion Countermeasures\"": "3",
-      "`\"Biroo\"": "Atomic Thruster`",
+      "`\"Biroo\" Atomic Thruster`": 1,
       "\"A255 Atomic Steering\"": 1,
       "\"Hyperdrive\"": 1
     },
@@ -4998,7 +4984,7 @@
       "\"Tactical Scanner\"": 1,
       "\"Wanderer Ramscoop\"": 1,
       "\"Afterburner\"": 1,
-      "`\"Bufaer\"": "Atomic Thruster`",
+      "`\"Bufaer\" Atomic Thruster`": 1,
       "\"Ionic Afterburner\"": "5",
       "\"Type 4 Radiant Thruster\"": 1,
       "\"Type 4 Radiant Steering\"": "4",
@@ -9470,8 +9456,8 @@
       "\"Supercapacitor\"": "2",
       "\"D14-RN Shield Generator\"": 1,
       "\"Small Radar Jammer\"": 1,
-      "`\"Benga\"": "Atomic Thruster`",
-      "`\"Biroo\"": "Atomic Steering`",
+      "`\"Benga\" Atomic Thruster`": 1,
+      "`\"Biroo\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -9492,10 +9478,8 @@
       "\"Hai Williwaw Cooling\"": "3",
       "\"Ramscoop\"": 1,
       "\"Outfits Expansion\"": "2",
-      "`\"Bufaer\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ],
+      "`\"Bufaer\" Atomic Thruster`": 1,
+      "`\"Bufaer\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -9638,11 +9622,9 @@
       "\"Large Radar Jammer\"": 1,
       "\"Liquid Nitrogen Cooler\"": 1,
       "\"Outfits Expansion\"": "6",
-      "`\"Benga\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ],
-      "`\"Biroo\"": "Atomic Steering`",
+      "`\"Benga\" Atomic Thruster`": 1,
+      "`\"Biroo\" Atomic Steering`": 1,
+      "`\"Benga\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -9783,8 +9765,8 @@
       "\"Hai Ravine Batteries\"": 1,
       "\"D23-QP Shield Generator\"": 1,
       "\"X3700 Ion Thruster\"": 1,
-      "`\"Benga\"": "Atomic Steering`",
-      "`\"Basrem\"": "Atomic Steering`",
+      "`\"Benga\" Atomic Steering`": 1,
+      "`\"Basrem\" Atomic Steering`": 1,
       "\"Scram Drive\"": 1
     },
     "turret": [
@@ -9968,8 +9950,8 @@
       "\"D94-YV Shield Generator\"": 1,
       "\"Cooling Ducts\"": 1,
       "\"Cargo Expansion\"": 1,
-      "`\"Biroo\"": "Atomic Thruster`",
-      "`\"Bondir\"": "Atomic Steering`",
+      "`\"Biroo\" Atomic Thruster`": 1,
+      "`\"Bondir\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -10277,8 +10259,8 @@
       "\"RT-I Radiothermal\"": 1,
       "\"D14-RN Shield Generator\"": 1,
       "\"Hai Williwaw Cooling\"": 1,
-      "`\"Basrem\"": "Atomic Thruster`",
-      "`\"Benga\"": "Atomic Steering`",
+      "`\"Basrem\" Atomic Thruster`": 1,
+      "`\"Benga\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -10632,10 +10614,8 @@
       "\"Hai Ravine Batteries\"": 1,
       "\"D67-TM Shield Generator\"": 1,
       "\"Liquid Helium Cooler\"": 1,
-      "`\"Bondir\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ],
+      "`\"Bondir\" Atomic Thruster`": 1,
+      "`\"Bondir\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -10838,9 +10818,9 @@
       "\"Cooling Ducts\"": 1,
       "\"Outfits Expansion\"": 1,
       "\"Ramscoop\"": 1,
-      "`\"Bondir\"": "Atomic Thruster`",
-      "`\"Biroo\"": "Atomic Steering`",
-      "`\"Basrem\"": "Atomic Steering`",
+      "`\"Bondir\" Atomic Thruster`": 1,
+      "`\"Biroo\" Atomic Steering`": 1,
+      "`\"Basrem\" Atomic Steering`": 1,
       "\"Hyperdrive\"": 1
     }
   },
@@ -10910,10 +10890,8 @@
       "\"Hai Fissure Batteries\"": 1,
       "\"Hai Corundum Regenerator\"": 1,
       "\"Liquid Nitrogen Cooler\"": 1,
-      "`\"Bondir\"": [
-        "Atomic Thruster`",
-        "Atomic Steering`"
-      ],
+      "`\"Bondir\" Atomic Thruster`": 1,
+      "`\"Bondir\" Atomic Steering`": 1,
       "Hyperdrive": 1
     }
   },
@@ -12298,7 +12276,7 @@
       "\"Wanderer Ramscoop\"": 1,
       "\"Outfits Expansion\"": "4",
       "\"Laser Rifle\"": "120",
-      "`\"Bondir\"": "Atomic Thruster`",
+      "`\"Bondir\" Atomic Thruster`": 1,
       "\"Steering (Stellar Class)\"": 1,
       "\"Jump Drive\"": 1
     },
