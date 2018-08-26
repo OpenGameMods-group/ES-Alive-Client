@@ -1,4 +1,3 @@
 module.exports = {
-  apiCall: require('./apiCall'),
-  signin: require('./signin')
+  api: require('./api')
 }

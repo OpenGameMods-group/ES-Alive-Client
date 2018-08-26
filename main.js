@@ -1,6 +1,6 @@
 const { currentDir } = require('scripts/config')
 const save = require('scripts/data-tools/save')
-const { signin } = require('scripts/services')
+const { api } = require('scripts/services')
 
 const start = async () => {
   try {
@@ -21,9 +21,13 @@ const start = async () => {
 
     // console.log(pilotData.credits, pilotData.ships.rejected.length, pilotData.ships.valid.length)
 
-    console.log(await signin('abc123', 'abc123'))
+    const user = await api.handleAuth('signin', { username: 'abc123', password: 'abc123' })
+    const newPilot = await api.createPilot(user.id, { name: 'Test123', credits: 10000 })
+
+    console.log(newPilot)
   } catch (err) {
-    console.log('error', err)
+    // show error message to user
+    console.log(err)
   }
 }
 
