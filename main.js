@@ -1,6 +1,7 @@
 const { currentDir } = require('scripts/config')
 const save = require('scripts/data-tools/save')
 const { api } = require('scripts/services')
+const { formatShip } = require('scripts/data-tools/validate')
 
 const start = async () => {
   try {
@@ -15,16 +16,20 @@ const start = async () => {
     // 8. If pilot not found create a new one, otherwise update pilot
     // 9. Store returned data in file storage
 
-    // const pilots = await save.readSaveDir(currentDir)
-    // const pilotText = await save.readSaveFile(pilots[1])
-    // const pilotData = await save.parseAndValidate(pilotText)
+    const pilots = await save.readSaveDir(currentDir)
+    const pilotText = await save.readSaveFile(pilots[1])
+    const pilotData = await save.parseAndValidate(pilotText)
 
     // console.log(pilotData.credits, pilotData.ships.rejected.length, pilotData.ships.valid.length)
 
     const user = await api.handleAuth('signin', { username: 'abc123', password: 'abc123' })
     const newPilot = await api.createPilot(user.id, { name: 'Test123', credits: 10000 })
 
-    console.log(newPilot)
+    const shipsToUpload = formatShip(pilotData.ships.valid[0])
+
+    console.log(shipsToUpload)
+
+    // console.log(newPilot)
   } catch (err) {
     // show error message to user
     console.log(err)

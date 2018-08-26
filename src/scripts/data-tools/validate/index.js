@@ -1,4 +1,5 @@
 module.exports = {
   validateShip: require('./validateShip'),
-  validateOutfits: require('./validateOutfits')
+  validateOutfits: require('./validateOutfits'),
+  formatShip: require('./formatShip')
 }
