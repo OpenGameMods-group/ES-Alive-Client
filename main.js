@@ -17,17 +17,22 @@ const start = async () => {
     // 9. Store returned data in file storage
 
     const pilots = await save.readSaveDir(currentDir)
-    const pilotText = await save.readSaveFile(pilots[1])
-    const pilotData = await save.parseAndValidate(pilotText)
+    const pilotFile = await save.readSaveFile(pilots[1])
+    const pilotData = await save.parseAndValidate(pilotFile)
 
     // console.log(pilotData.credits, pilotData.ships.rejected.length, pilotData.ships.valid.length)
 
     const user = await api.handleAuth('signin', { username: 'abc123', password: 'abc123' })
-    const newPilot = await api.createPilot(user.id, { name: 'Test123', credits: 10000 })
 
-    const shipsToUpload = formatShip(pilotData.ships.valid[0])
+    const pilot = await api.createPilot(user._id, {
+      faction: pilotData.faction,
+      credits: pilotData.credits,
+      name: pilotData.name
+    })
 
-    console.log(shipsToUpload)
+    const shipsToUpload = pilotData.ships.valid.slice(0, 10).map(formatShip)
+
+    console.log(await api.updateShips(user._id, pilot._id, { ships: shipsToUpload }))
 
     // console.log(newPilot)
   } catch (err) {

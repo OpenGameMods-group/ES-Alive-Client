@@ -9,7 +9,7 @@ const readSaveFile = async (pilotName) => {
   try {
     const pilotText = await readFile(path.join(currentDir, 'saves', pilotName + '.txt'), 'utf-8')
 
-    return pilotText
+    return { pilotText, filename: pilotName }
   } catch (e) {
     console.log(e)
   }

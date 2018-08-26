@@ -7,12 +7,12 @@ const parsePilot = require('./parsePilot')
 /**
  * parseAndValidate - combines parse and validate to parse a pilot and validate the ships/outfits
  * Returns object with parsed data and ships object with array of rejected and valid
- * @param {string} pilotText - Save file string from reading it
+ * @param {object} pilotText, filename
  * @returns {Object} - { ...parsedData, ships: { rejected: [], valid: [] } }
  */
-const parseAndValidate = async (pilotText) => {
+const parseAndValidate = async ({ pilotText, filename }) => {
   try {
-    const parsed = parsePilot(pilotText)
+    const parsed = parsePilot({ pilotText, filename })
     const validatedShips = {
       rejected: [],
       valid: []

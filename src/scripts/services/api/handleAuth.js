@@ -14,6 +14,7 @@ const handleAuth = async (type, { username, password }) => {
         data = await signup(username, password)
         break
       case 'signout':
+        // TODO: clear data
         return setTokenHeader(false)
       default:
         throw new Error('Invalid auth type')
