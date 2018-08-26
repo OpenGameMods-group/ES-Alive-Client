@@ -16,8 +16,10 @@ const currentDir = platform === 'darwin'
 
 module.exports = {
 
+  localConfig: require('./localConfig'),
+
   serverUrl: isDev
-    ? 'localhost:5000'
+    ? 'http://localhost:5000'
     : 'https://boiling-harbor-27812.herokuapp.com',
 
   isDev,
