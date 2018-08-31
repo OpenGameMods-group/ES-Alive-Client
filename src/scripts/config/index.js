@@ -1,4 +1,7 @@
+// TODO: add userdata path for storing data
+
 const os = require('os')
+// const electron = require('electron')
 
 const isDev = process.argv.includes('--dev')
 const platform = process.platform
@@ -17,6 +20,8 @@ const currentDir = platform === 'darwin'
 module.exports = {
 
   localConfig: require('./localConfig'),
+
+  // userDataPath: (electron.app || electron.remote.app).getPath('userData'),
 
   serverUrl: isDev
     ? 'http://localhost:5000'

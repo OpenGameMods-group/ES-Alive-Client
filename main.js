@@ -2,6 +2,7 @@ const { currentDir } = require('scripts/config')
 const save = require('scripts/data-tools/save')
 const { api } = require('scripts/services')
 const { formatShip } = require('scripts/data-tools/validate')
+const config = require('scripts/config')
 
 const start = async () => {
   try {
@@ -37,6 +38,12 @@ const start = async () => {
 
     // TODO: store person ids in local storage/config and generate plugin
     // console.log(await api.getPersons(user._id, 9999))
+
+    console.log(__dirname)
+    const testPath = `testSpace`
+    console.log(
+      await config.localConfig.generateConfig(testPath, user.username, user)
+    )
 
     // console.log(newPilot)
   } catch (err) {
