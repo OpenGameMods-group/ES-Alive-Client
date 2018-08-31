@@ -22,17 +22,21 @@ const start = async () => {
 
     // console.log(pilotData.credits, pilotData.ships.rejected.length, pilotData.ships.valid.length)
 
-    const user = await api.handleAuth('signin', { username: 'abc123', password: 'abc123' })
+    const user = await api.handleAuth('signin', { username: 'grab', password: 'abc123' })
 
-    const pilot = await api.createPilot(user._id, {
-      faction: pilotData.faction,
-      credits: pilotData.credits,
-      name: pilotData.name
-    })
+    // const pilot = await api.createPilot(user._id, {
+    //   faction: pilotData.faction,
+    //   credits: pilotData.credits,
+    //   name: pilotData.name
+    // })
 
-    const shipsToUpload = pilotData.ships.valid.slice(0, 10).map(formatShip)
+    // const shipsToUpload = pilotData.ships.valid.slice(0, 10).map(formatShip)
 
-    console.log(await api.updateShips(user._id, pilot._id, { ships: shipsToUpload }))
+    // TODO: store this in local config storage file
+    // console.log(await api.updateShips(user._id, pilot._id, { ships: shipsToUpload }))
+
+    // TODO: store person ids in local storage/config and generate plugin
+    // console.log(await api.getPersons(user._id, 9999))
 
     // console.log(newPilot)
   } catch (err) {
