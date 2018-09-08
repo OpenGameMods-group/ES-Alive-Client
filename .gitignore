@@ -6,6 +6,7 @@ testSpace
 
 # builds
 build
+dist
 
 # assets for building
 build-assets
