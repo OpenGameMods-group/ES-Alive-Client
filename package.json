@@ -56,7 +56,6 @@
     "babel-eslint": "^8.2.6",
     "babel-preset-env": "^1.7.0",
     "concurrently": "^4.0.1",
-    "electron": "^2.0.8",
     "electron-builder": "^20.28.2",
     "electron-icon-maker": "0.0.4",
     "expect": "^23.5.0",
@@ -67,6 +66,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "electron": "^2.0.8",
     "electron-is-dev": "^0.3.0",
     "moment": "^2.22.2",
     "normalize.css": "^8.0.0",
