@@ -1,7 +1,7 @@
 // parseAndValidate.js - combines parse and validate
 // to parse a pilot and validate the ships/outfits
 
-const { validateShip, validateOutfits } = require('scripts/data-tools/validate')
+const { validateShip, validateOutfits } = require('../validate')
 const parsePilot = require('./parsePilot')
 
 /**

@@ -1,8 +1,9 @@
 const { BrowserWindow, ipcMain, Menu, app, ipcRenderer } = require('electron')
-
 const path = require('path')
 const url = require('url')
 const isDev = require('electron-is-dev')
+
+const { createListeners } = require('./electron-main')
 
 let mainWindow
 
@@ -22,7 +23,10 @@ function createWindow () {
   mainWindow.on('closed', () => { mainWindow = null })
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+  createWindow()
+  createListeners(mainWindow)
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

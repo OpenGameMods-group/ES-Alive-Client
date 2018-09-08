@@ -2,7 +2,7 @@
 
 const axios = require('axios')
 
-const { serverUrl } = require('scripts/config')
+const { serverUrl } = require('../../config')
 
 module.exports = async (method, route, data) => {
   try {

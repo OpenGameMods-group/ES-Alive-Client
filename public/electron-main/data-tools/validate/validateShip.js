@@ -1,4 +1,4 @@
-const ships = require('data/json/sorted-game-data/ship.json')
+const ships = require('../../data/json/sorted-game-data/ship.json')
 
 const validateShip = shipObj => {
   if (shipObj.attributes.automaton) return false

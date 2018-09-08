@@ -7,14 +7,19 @@ class App extends Component {
   }
 
   componentDidMount () {
-    // const { ipcRenderer } = window.electron
-    // ipcRenderer.send('mount-app')
+    const { ipcRenderer } = window.electron
+    ipcRenderer.send('mount-app')
+    ipcRenderer.send('get:config')
 
-    // ipcRenderer.on('okay', (event, arg) => {
-    //   this.setState({
-    //     message: arg
-    //   })
-    // })
+    ipcRenderer.on('okay', (event, arg) => {
+      this.setState({
+        message: arg
+      })
+    })
+
+    ipcRenderer.on('get:config', (event, arg) => {
+      console.log(arg)
+    })
   }
 
   render () {

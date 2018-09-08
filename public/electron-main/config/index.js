@@ -3,9 +3,9 @@
 const os = require('os')
 // const electron = require('electron')
 
-const isDev = process.argv.includes('--dev')
 const platform = process.platform
 const homeDir = os.homedir()
+const isDev = require('electron-is-dev')
 
 const DIR_LINUX = `${homeDir}/.local/share/endless-sky/`
 const DIR_WIN = `${homeDir}\\AppData\\Roaming\\endless-sky\\`

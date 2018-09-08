@@ -3,7 +3,7 @@
   "productName": "ES Alive Client",
   "version": "1.0.0",
   "description": "Client for Endless Sky Alive, semi-multiplayer mod",
-  "main": "public/electron.js",
+  "main": "public/main.js",
   "homepage": "./",
   "proxy": {
     "/api/*": {
