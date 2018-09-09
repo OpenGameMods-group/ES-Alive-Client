@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
 
+import { SIGNUP, SIGNIN } from 'events/channels'
+import removeListeners from 'events/removeListeners'
+
 class AuthForm extends Component {
   state = {
     username: '',
     password: ''
+  }
+
+  componentDidMount () {
+    const { ipcRenderer } = window.electron
+
+    ipcRenderer.once(SIGNIN, (event, data) => {
+      console.log('signin', data)
+      this.props.history.push('/')
+    })
   }
 
   handleChange = (evt) => {
@@ -18,7 +30,7 @@ class AuthForm extends Component {
     const { authType } = this.props
     const { username, password } = this.state
 
-    console.log(username, password, authType)
+    window.electron.ipcRenderer.send(authType, { username, password, authType })
   }
 
   render () {

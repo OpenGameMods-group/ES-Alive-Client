@@ -4,6 +4,7 @@ import { HashRouter as Router, Link } from 'react-router-dom'
 import './App.css'
 import { GET_CONFIG } from 'events/channels'
 import Routes from 'components/Routes'
+import removeListeners from 'events/removeListeners'
 
 class App extends Component {
   state = {
@@ -14,19 +15,15 @@ class App extends Component {
     const { ipcRenderer } = window.electron
     ipcRenderer.send(GET_CONFIG)
 
-    ipcRenderer.on(GET_CONFIG, (event, config) => {
+    ipcRenderer.once(GET_CONFIG, (event, config) => {
       this.setState({
         currentDir: config.currentDir
       })
     })
   }
 
-  componentWillUnmount () {
-    const { ipcRenderer } = window.electron
-    ipcRenderer.removeListener(GET_CONFIG)
-  }
-
   render () {
+    console.log(this.state)
     return (
       <Router>
         <React.Fragment>
