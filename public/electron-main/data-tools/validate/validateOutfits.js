@@ -1,4 +1,4 @@
-const outfitsVanilla = require('data/json/sorted-game-data/outfit.json')
+const outfitsVanilla = require('../../data/json/sorted-game-data/outfit.json')
 
 const validateOutfits = shipObj => {
   const outfits = Object.keys(shipObj.outfits)

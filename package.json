@@ -3,7 +3,24 @@
   "productName": "ES Alive Client",
   "version": "1.0.0",
   "description": "Client for Endless Sky Alive, semi-multiplayer mod",
-  "main": "main.js",
+  "main": "public/main.js",
+  "homepage": "./",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
+  "build": {
+    "appId": "com.codedraken.es-alive-client",
+    "icon": "build/icons/",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "build"
+    }
+  },
   "standard": {
     "globals": [
       "$",
@@ -22,16 +39,15 @@
     ]
   },
   "scripts": {
-    "start": "NODE_PATH=src node main.js --dev",
-    "package": "build",
-    "test": "NODE_ENV=test NODE_PATH=. mocha --recursive tests",
-    "test-watch": "nodemon --exec 'npm test'",
+    "start-react": "NODE_PATH=src react-scripts start",
+    "build-react": "NODE_PATH=src react-scripts build",
+    "test-react": "NODE_PATH=src react-scripts test --env=jsdom",
     "lint": "standard",
-    "lint-fix": "standard --fix"
-  },
-  "build": {
-    "files": "!build-assets${/*}",
-    "appId": "com.CodeDraken.ESAlive"
+    "lint-fix": "standard --fix",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/main.js",
+    "start": "concurrently \"BROWSER=none npm run start-react\" \"wait-on http://localhost:3000 && electron .\"",
+    "preelectron-pack": "npm run build-react",
+    "postinstall": "electron-builder install-app-deps"
   },
   "author": "CodeDraken",
   "license": "MIT",
@@ -39,15 +55,25 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
     "babel-preset-env": "^1.7.0",
+    "concurrently": "^4.0.1",
     "electron": "^2.0.8",
     "electron-builder": "^20.28.2",
+    "electron-icon-maker": "0.0.4",
     "expect": "^23.5.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.3",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "wait-on": "^3.0.1"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "normalize.css": "^8.0.0"
+    "electron-is-dev": "^0.3.0",
+    "moment": "^2.22.2",
+    "normalize.css": "^8.0.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5"
   }
 }

@@ -1,4 +1,4 @@
-const dataReader = require('scripts/data-tools/data-reader')
+const dataReader = require('../data-reader')
 
 /**
  * Synchronous

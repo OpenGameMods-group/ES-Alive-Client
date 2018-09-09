@@ -3,7 +3,7 @@ const path = require('path')
 const { promisify } = require('util')
 const readFile = promisify(fs.readFile)
 
-const { currentDir } = require('scripts/config')
+const { currentDir } = require('../../config')
 
 const readSaveFile = async (pilotName) => {
   try {
