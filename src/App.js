@@ -3,7 +3,8 @@ import './App.css'
 
 class App extends Component {
   state = {
-    message: ''
+    message: '',
+    currentDir: ''
   }
 
   componentDidMount () {
@@ -17,8 +18,10 @@ class App extends Component {
       })
     })
 
-    ipcRenderer.on('get:config', (event, arg) => {
-      console.log(arg)
+    ipcRenderer.on('get:config', (event, config) => {
+      this.setState({
+        currentDir: config.currentDir
+      })
     })
   }
 
@@ -32,6 +35,8 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         {this.state.message}
+        <br />
+        Detected directory: {this.state.currentDir}
       </div>
     )
   }
