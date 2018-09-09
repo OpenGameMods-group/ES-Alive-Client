@@ -1,3 +1,4 @@
+export const GET_USER = 'get:user'
 export const GET_CONFIG = 'get:config'
 
 export const SIGNUP = 'signup'

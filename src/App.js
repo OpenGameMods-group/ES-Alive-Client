@@ -2,18 +2,31 @@ import React, { Component } from 'react'
 import { HashRouter as Router, Link } from 'react-router-dom'
 
 import './App.css'
-import { GET_CONFIG } from 'events/channels'
+import { GET_CONFIG, GET_USER } from 'events/channels'
 import Routes from 'components/Routes'
-import removeListeners from 'events/removeListeners'
 
 class App extends Component {
   state = {
-    currentDir: ''
+    currentDir: '',
+    user: null
   }
 
   componentDidMount () {
     const { ipcRenderer } = window.electron
+    const lastUser = window.localStorage.getItem('user')
+
     ipcRenderer.send(GET_CONFIG)
+
+    if (lastUser) {
+      ipcRenderer.send(GET_USER, lastUser)
+
+      ipcRenderer.once(GET_USER, (event, user) => {
+        console.log('got user', user)
+        this.setState({
+          user
+        })
+      })
+    }
 
     ipcRenderer.once(GET_CONFIG, (event, config) => {
       this.setState({
@@ -42,6 +55,13 @@ class App extends Component {
                 <span className='text-info'> {this.state.currentDir}</span>
               </p>
             </div>
+
+            {
+              this.state.user
+                ? <h1>{this.state.user.username}</h1>
+                : null
+            }
+
             { Routes }
           </main>
         </React.Fragment>

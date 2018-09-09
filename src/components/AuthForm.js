@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import { SIGNUP, SIGNIN } from 'events/channels'
-import removeListeners from 'events/removeListeners'
 
 class AuthForm extends Component {
   state = {
@@ -14,6 +13,7 @@ class AuthForm extends Component {
 
     ipcRenderer.once(SIGNIN, (event, data) => {
       console.log('signin', data)
+      window.localStorage.setItem('user', data.username)
       this.props.history.push('/')
     })
   }
