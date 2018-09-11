@@ -4,6 +4,7 @@ import { HashRouter as Router, Link } from 'react-router-dom'
 import './App.css'
 import { GET_CONFIG, GET_USER } from 'events/channels'
 import Routes from 'components/Routes'
+import UserInfo from 'components/UserInfo'
 
 class App extends Component {
   state = {
@@ -21,7 +22,6 @@ class App extends Component {
       ipcRenderer.send(GET_USER, lastUser)
 
       ipcRenderer.once(GET_USER, (event, user) => {
-        console.log('got user', user)
         this.setState({
           user
         })
@@ -36,15 +36,27 @@ class App extends Component {
   }
 
   render () {
-    console.log(this.state)
+    const { user } = this.state
+
     return (
       <Router>
         <React.Fragment>
           <nav>
             <ul className='menu align-center'>
               <li><Link to='/'>Home</Link></li>
-              <li><Link to='/signin'>Signin</Link></li>
-              <li><Link to='/signup'>Signup</Link></li>
+              {
+                user
+                  ? [
+                    <li key='user-info-link'>
+                      <Link to={{ pathname: '/userinfo', state: { user } }}>User Info</Link>
+                    </li>
+                  ]
+                  : [
+                    <li key='signin-link'><Link to='/signin'>Signin</Link></li>,
+                    <li key='signup-link'><Link to='/signup'>Signup</Link></li>
+                  ]
+              }
+
             </ul>
           </nav>
           <main className='container'>
@@ -56,13 +68,8 @@ class App extends Component {
               </p>
             </div>
 
-            {
-              this.state.user
-                ? <h1>{this.state.user.username}</h1>
-                : null
-            }
-
             { Routes }
+
           </main>
         </React.Fragment>
       </Router>

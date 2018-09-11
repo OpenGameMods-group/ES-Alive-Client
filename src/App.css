@@ -9,3 +9,11 @@ body {
 .container {
   margin: 0 1rem;
 }
+
+.table-fix {
+  table-layout: fixed;
+}
+
+.table-fix td {
+  word-wrap: break-word;
+}
