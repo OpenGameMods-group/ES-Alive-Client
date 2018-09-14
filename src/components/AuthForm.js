@@ -8,16 +8,6 @@ class AuthForm extends Component {
     password: ''
   }
 
-  componentDidMount () {
-    const { ipcRenderer } = window.electron
-
-    ipcRenderer.once(SIGNIN, (event, data) => {
-      console.log('signin', data)
-      window.localStorage.setItem('user', data.username)
-      this.props.history.push('/')
-    })
-  }
-
   handleChange = (evt) => {
     const { name } = evt.target
     this.setState({
@@ -27,10 +17,16 @@ class AuthForm extends Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault()
+    const { ipcRenderer } = window.electron
     const { authType } = this.props
     const { username, password } = this.state
 
-    window.electron.ipcRenderer.send(authType, { username, password, authType })
+    ipcRenderer.send(authType, { username, password, authType })
+
+    ipcRenderer.once(SIGNIN, (event, data) => {
+      window.localStorage.setItem('user', data.username)
+      this.props.history.push('/')
+    })
   }
 
   render () {
