@@ -1,6 +1,10 @@
 
 import * as types from './types'
+import * as userActions from './userActions'
+import * as configActions from './configActions'
 
-export default {
-  types
+export {
+  types,
+  userActions,
+  configActions
 }

@@ -2,45 +2,25 @@ import React, { Component } from 'react'
 import { HashRouter as Router, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { GET_CONFIG, GET_USER } from 'events/channels'
 import Routes from 'components/Routes'
 import UserInfo from 'components/UserInfo'
-import * as configActions from 'store/actions/configActions'
+import { configActions, userActions } from 'store/actions'
 
 class App extends Component {
   componentDidMount () {
+    const lastUser = window.localStorage.getItem('user')
+
+    if (lastUser) {
+      console.log('has last user', lastUser)
+      this.props.getUser(lastUser)
+    }
+
     this.props.getConfig()
-    // const { ipcRenderer } = window.electron
-    // const lastUser = window.localStorage.getItem('user')
-
-    // ipcRenderer.send(GET_CONFIG)
-
-    // if (lastUser) {
-    //   ipcRenderer.send(GET_USER, lastUser)
-
-    //   ipcRenderer.once(GET_USER, (event, user) => {
-    //     this.setState({
-    //       user
-    //     })
-    //   })
-    // }
-
-    // ipcRenderer.once(GET_CONFIG, (event, config) => {
-    //   this.setState({
-    //     currentDir: config.currentDir
-    //   })
-    // })
   }
 
-  // handleSignout = () => {
-  //   window.localStorage.setItem('user', '')
-
-  //   this.setState({ user: null })
-  // }
-
-  // handleSignin = (user) => {
-  //   this.setState({ user })
-  // }
+  handleSignout = () => {
+    window.localStorage.setItem('user', '')
+  }
 
   render () {
     return (
@@ -85,8 +65,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ config }, ownProps) => ({
-  config
+const mapStateToProps = ({ config, user }, ownProps) => ({
+  config,
+  user
 })
 
-export default connect(mapStateToProps, configActions)(App)
+export default connect(mapStateToProps, {
+  ...configActions,
+  ...userActions
+})(App)

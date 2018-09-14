@@ -14,12 +14,13 @@ const updateConfig = async (user) => {
 }
 
 const getUser = async ({ sender }, username) => {
+  console.log('getting user', username)
   try {
     const { existingConfig } = await config.localConfig.configInfo(dataPath, username) || {}
 
-    sender.send(channels.GET_USER, existingConfig)
+    sender.send(channels.GET_USER_SUCCESS, existingConfig)
   } catch (error) {
-    sender.send(channels.CONFIG_ERROR, error)
+    sender.send(channels.GET_USER_FAILURE, error)
   }
 }
 

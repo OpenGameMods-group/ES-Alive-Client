@@ -5,7 +5,6 @@ const authHandler = require('./listenerHandlers/authHandler')
 const configHandler = require('./listenerHandlers/configHandler')
 
 const createListeners = (mainWindow) => {
-  console.log(ipcMain)
   ipcMain.on(channels.GET_CONFIG, (event, arg) => {
     // dont send localConfig functions
     const { localConfig, ...config } = require('./config')

@@ -2,7 +2,7 @@ import { GET_CONFIG, GET_CONFIG_SUCCESS, GET_CONFIG_FAILURE } from './types'
 
 import { listenersWrapper, cleanListeners } from './listenerUtil'
 
-export const getConfig = () => async dispatch => {
+export const getConfig = () => dispatch => {
   const { ipcRenderer } = window.electron
 
   try {

@@ -1,5 +1,5 @@
 
-import * as types from 'store/actions/types'
+import { types } from 'store/actions'
 
 const defaultState = {
   config: null
