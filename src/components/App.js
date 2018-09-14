@@ -11,7 +11,6 @@ class App extends Component {
     const lastUser = window.localStorage.getItem('user')
 
     if (lastUser) {
-      console.log('has last user', lastUser)
       this.props.getUser(lastUser)
     }
 
@@ -19,10 +18,11 @@ class App extends Component {
   }
 
   handleSignout = () => {
-    window.localStorage.setItem('user', '')
+    this.props.signout()
   }
 
   render () {
+    console.log(this.props)
     return (
       <Router>
         <React.Fragment>

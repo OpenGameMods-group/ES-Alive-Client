@@ -9,6 +9,10 @@ export default (state = defaultState, action) => {
       return {
         ...action.payload
       }
+
+    case types.SIGNOUT:
+      return null
+
     default: return state
   }
 }
