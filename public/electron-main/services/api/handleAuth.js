@@ -23,6 +23,7 @@ const handleAuth = async (type, { username, password }) => {
     setTokenHeader(data.token)
     return data
   } catch (error) {
+    console.log(error)
     throw error
   }
 }

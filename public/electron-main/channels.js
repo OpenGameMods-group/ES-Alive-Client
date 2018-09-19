@@ -6,8 +6,12 @@ exports.GET_USER = 'GET_USER'
 exports.GET_USER_SUCCESS = 'GET_USER_SUCCESS'
 exports.GET_USER_FAILURE = 'GET_USER_FAILURE'
 
-exports.SIGNUP = 'signup'
-exports.SIGNUP_FAIL = 'signup:fail'
+exports.SIGNOUT = 'SIGNOUT'
 
-exports.SIGNIN = 'signin'
-exports.SIGNIN_FAIL = 'signin:fail'
+exports.SIGNIN = 'SIGNIN'
+exports.SIGNIN_SUCCESS = 'SIGNIN_SUCCESS'
+exports.SIGNIN_FAILURE = 'SIGNIN_FAILURE'
+
+exports.SIGNUP = 'SIGNUP'
+exports.SIGNUP_SUCCESS = 'SIGNUP_SUCCESS'
+exports.SIGNUP_FAILURE = 'SIGNUP_FAILURE'

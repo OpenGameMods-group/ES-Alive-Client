@@ -6,13 +6,17 @@ export const cleanListeners = (...listeners) => {
 }
 
 // handles generic listeners with success/fail, cleanup
-export const listenersWrapper = (dispatch, ...listeners) => {
+export const listenersWrapper = ({ dispatch, callback = null, listeners }) => {
   const { ipcRenderer } = window.electron
 
   listeners.forEach(listener => {
     ipcRenderer.once(listener, (event, data) => {
       cleanListeners(...listeners)
       dispatch({ type: listener, payload: data })
+
+      if (callback) {
+        callback(listener, data)
+      }
     })
   })
 }

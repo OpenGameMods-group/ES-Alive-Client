@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import { SIGNUP, SIGNIN } from 'store/actions/types'
+import { userActions } from 'store/actions'
 
 class AuthForm extends Component {
   state = {
@@ -17,16 +19,14 @@ class AuthForm extends Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault()
-    const { ipcRenderer } = window.electron
-    const { authType } = this.props
+    const { authType, history, signin } = this.props
     const { username, password } = this.state
 
-    ipcRenderer.send(authType, { username, password, authType })
+    if (authType === SIGNIN) {
+      signin({ username, password, history })
+    } else if (authType === SIGNUP) {
 
-    ipcRenderer.once(SIGNIN, (event, data) => {
-      window.localStorage.setItem('user', data.username)
-      this.props.history.push('/')
-    })
+    }
   }
 
   render () {
@@ -69,4 +69,4 @@ class AuthForm extends Component {
   }
 }
 
-export default AuthForm
+export default connect(null, { ...userActions })(AuthForm)

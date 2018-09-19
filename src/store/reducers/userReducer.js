@@ -6,6 +6,7 @@ const defaultState = null
 export default (state = defaultState, action) => {
   switch (action.type) {
     case types.GET_USER_SUCCESS:
+    case types.SIGNIN_SUCCESS:
       return {
         ...action.payload
       }
