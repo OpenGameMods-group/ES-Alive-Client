@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { SIGNUP, SIGNIN } from 'events/channels'
+import { SIGNUP, SIGNIN } from 'store/actions/types'
 
 class AuthForm extends Component {
   state = {

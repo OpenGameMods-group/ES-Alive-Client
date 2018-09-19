@@ -1,16 +1,17 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { SIGNUP, SIGNIN } from 'events/channels'
 import AuthForm from 'components/AuthForm'
 import UserInfo from 'components/UserInfo'
+
+import { SIGNUP, SIGNIN } from 'store/actions/types'
 
 const dummy = name => () => <div>{name}</div>
 
 export default (
   <Switch>
     <Route exact path='/userinfo'
-      render={(props) => <UserInfo {...props} />}
+      component={UserInfo}
     />
     <Route exact path='/signup'
       render={(props) => <AuthForm {...props} authType={SIGNUP} />} />
