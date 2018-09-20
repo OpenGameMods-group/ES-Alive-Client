@@ -35,8 +35,6 @@ export const signin = ({ username, password, history }) => dispatch => {
 
     dispatch({ type: SIGNIN, payload: user })
 
-    console.log('signing in ', user)
-
     ipcRenderer.send(SIGNIN, user)
 
     listenersWrapper({
@@ -50,8 +48,8 @@ export const signin = ({ username, password, history }) => dispatch => {
       }
     })
   } catch (error) {
-    console.log('signing in error', error)
     cleanListeners(SIGNIN_SUCCESS, SIGNIN_FAILURE)
+
     return dispatch({ type: SIGNIN_FAILURE, error })
   }
 }

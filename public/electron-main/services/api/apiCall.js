@@ -13,7 +13,7 @@ module.exports = async (method, route, data) => {
   } catch (error) {
     // error.response.data.erro
     const msg = error.response.data.error.message || error
-    console.log('apiCall', msg)
+
     throw msg
   }
 }

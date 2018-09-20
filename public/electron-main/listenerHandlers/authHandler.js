@@ -15,8 +15,6 @@ const signup = async ({ sender }, { username, password }) => {
     sender.send(SIGNIN_SUCCESS, user)
 
     setTokenHeader(res.token)
-
-    console.log('signed in', user)
   } catch (error) {
     sender.send(SIGNUP_FAILURE, error)
   }
@@ -32,12 +30,9 @@ const signin = async ({ sender }, { username, password }) => {
     sender.send(SIGNIN_SUCCESS, user)
 
     setTokenHeader(res.token)
-
-    console.log('signed in', user)
   } catch (error) {
     const msg = error.response && error.response.data.error.message
 
-    console.log('signing in ERROR', msg || error)
     sender.send(SIGNIN_FAILURE, msg || error)
   }
 }

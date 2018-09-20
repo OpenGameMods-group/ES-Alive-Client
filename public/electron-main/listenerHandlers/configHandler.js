@@ -7,14 +7,13 @@ const dataPath = app.getPath('userData')
 
 const updateConfig = async (user) => {
   try {
-    console.log(await config.localConfig.generateConfig(dataPath, user.username, user))
+    await config.localConfig.generateConfig(dataPath, user.username, user)
   } catch (error) {
     throw error
   }
 }
 
 const getUser = async ({ sender }, username) => {
-  console.log('getting user', username)
   try {
     const { existingConfig } = await config.localConfig.configInfo(dataPath, username) || {}
 
