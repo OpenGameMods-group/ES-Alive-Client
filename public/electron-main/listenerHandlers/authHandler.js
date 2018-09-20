@@ -3,6 +3,7 @@ const axios = require('axios')
 const { serverUrl } = require('../config')
 const { SIGNUP, SIGNUP_FAILURE, SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE, GET_CONFIG } = require('../channels')
 const { updateConfig } = require('./configHandler')
+const setTokenHeader = require('../services/api/setTokenHeader')
 
 const signup = async ({ sender }, { username, password }) => {
   try {
@@ -12,6 +13,8 @@ const signup = async ({ sender }, { username, password }) => {
     updateConfig(user)
 
     sender.send(SIGNIN_SUCCESS, user)
+
+    setTokenHeader(res.token)
 
     console.log('signed in', user)
   } catch (error) {
@@ -27,6 +30,8 @@ const signin = async ({ sender }, { username, password }) => {
     updateConfig(user)
 
     sender.send(SIGNIN_SUCCESS, user)
+
+    setTokenHeader(res.token)
 
     console.log('signed in', user)
   } catch (error) {
