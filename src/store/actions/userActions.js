@@ -11,9 +11,8 @@ export const getUser = (lastUser) => dispatch => {
   try {
     dispatch({ type: GET_USER, user: lastUser })
 
-    ipcRenderer.send(GET_USER, lastUser)
-
     listenersWrapper({ dispatch, listeners: [ GET_USER_SUCCESS, GET_USER_FAILURE ] })
+    ipcRenderer.send(GET_USER, lastUser)
   } catch (error) {
     cleanListeners(GET_USER_SUCCESS, GET_USER_FAILURE)
     return dispatch({ type: GET_USER_FAILURE, error })
@@ -47,8 +46,6 @@ export const signin = ({ username, password, history }) => dispatch => {
         if (listener === SIGNIN_SUCCESS) {
           window.localStorage.setItem('user', data.username)
           history.push('/')
-        } else {
-          console.log('signin error')
         }
       }
     })

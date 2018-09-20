@@ -23,6 +23,7 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <Navbar />
+
           <main className='container'>
             <div className='callout'>
               <h5>Directory</h5>
