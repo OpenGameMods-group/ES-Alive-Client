@@ -4,21 +4,23 @@ const setTokenHeader = require('./setTokenHeader')
 
 const handleAuth = async (type, { username, password }) => {
   try {
-    let data
+    let data = await signin(username, password)
 
-    switch (type) {
-      case 'signin':
-        data = await signin(username, password)
-        break
-      case 'signup':
-        data = await signup(username, password)
-        break
-      case 'signout':
-        // TODO: clear data
-        return setTokenHeader(false)
-      default:
-        throw new Error('Invalid auth type')
-    }
+    data = data.data
+
+    // switch (type) {
+    //   case 'signin':
+    //     data = await signin(username, password)
+    //     break
+    //   case 'signup':
+    //     data = await signup(username, password)
+    //     break
+    //   case 'signout':
+    //     // TODO: clear data
+    //     return setTokenHeader(false)
+    //   default:
+    //     throw new Error('Invalid auth type')
+    // }
 
     setTokenHeader(data.token)
     return data

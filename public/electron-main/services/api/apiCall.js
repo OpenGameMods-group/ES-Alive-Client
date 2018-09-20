@@ -6,12 +6,14 @@ const { serverUrl } = require('../../config')
 
 module.exports = async (method, route, data) => {
   try {
-    const res = await axios[method](serverUrl + route, data)
+    // const res = await axios[method](serverUrl + route, data)
 
-    return res.data
+    // return res.data
+    return axios[method](serverUrl + route, data)
   } catch (error) {
     // error.response.data.erro
     const msg = error.response.data.error.message || error
+    console.log('apiCall', msg)
     throw msg
   }
 }
