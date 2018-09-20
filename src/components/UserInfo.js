@@ -1,12 +1,25 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-export default (props) => {
-  const user = props.location.state ? props.location.state.user : null
+const propTypes = {
+  children: PropTypes.node,
+  user: PropTypes.object
+}
+
+const defaultProps = {
+  children: null,
+  user: null
+}
+
+export const UserInfo = ({ children, ...props }) => {
+  const { user, ...attributes } = props
 
   if (!user) {
-    props.history.push('/')
+    // TODO: redirect in case user loads on page
+    // props.history.push('/')
 
-    return <div />
+    return <div><p>Not logged in</p></div>
   }
 
   const keys = Object.keys(user)
@@ -40,3 +53,12 @@ export default (props) => {
     </div>
   )
 }
+
+UserInfo.propTypes = propTypes
+UserInfo.defaultProps = defaultProps
+
+const mapStateToProps = ({ user }, ownProps) => ({
+  user
+})
+
+export default connect(mapStateToProps)(UserInfo)

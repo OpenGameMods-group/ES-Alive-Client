@@ -22,7 +22,7 @@ export const getUser = (lastUser) => dispatch => {
 
 export const signout = () => dispatch => {
   try {
-    window.localStorage.setItem('user', '')
+    window.localStorage.removeItem('user')
 
     return dispatch({ type: SIGNOUT })
   } catch (error) {

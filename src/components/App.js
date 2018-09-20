@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { HashRouter as Router, Link } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Routes from 'components/Routes'
-import UserInfo from 'components/UserInfo'
+import Navbar from 'components/Navbar'
 import { configActions, userActions } from 'store/actions'
 
 class App extends Component {
@@ -17,34 +17,12 @@ class App extends Component {
     this.props.getConfig()
   }
 
-  handleSignout = () => {
-    this.props.signout()
-  }
-
   render () {
     console.log(this.props)
     return (
       <Router>
         <React.Fragment>
-          <nav>
-            <ul className='menu align-center'>
-              <li><Link to='/'>Home</Link></li>
-              {
-                this.props.user
-                  ? [
-                    <li key='user-info-link'>
-                      <Link to='/userinfo'>User Info</Link>
-                    </li>,
-                    <li key='signout-link'><a href='#' onClick={this.handleSignout}>Signout</a></li>
-                  ]
-                  : [
-                    <li key='signin-link'><Link to='/signin'>Signin</Link></li>,
-                    <li key='signup-link'><Link to='/signup'>Signup</Link></li>
-                  ]
-              }
-
-            </ul>
-          </nav>
+          <Navbar />
           <main className='container'>
             <div className='callout'>
               <h5>Directory</h5>
