@@ -1,52 +1,39 @@
 const axios = require('axios')
 
 const { serverUrl } = require('../config')
-const { SIGNUP, SIGNUP_FAILURE, SIGNIN, SIGNIN_FAILURE, GET_CONFIG } = require('../channels')
-const { api } = require('../services')
+const { SIGNUP, SIGNUP_FAILURE, SIGNIN, SIGNIN_SUCCESS, SIGNIN_FAILURE, GET_CONFIG } = require('../channels')
 const { updateConfig } = require('./configHandler')
 
 const signup = async ({ sender }, { username, password }) => {
   try {
-    const user = await api.handleAuth('signup', { username, password })
+    const res = await axios.post(serverUrl + '/api/auth/signup', { username, password })
+    const user = res.data
 
-    sender.send(SIGNIN, user)
+    updateConfig(user)
+
+    sender.send(SIGNIN_SUCCESS, user)
+
+    console.log('signed in', user)
   } catch (error) {
     sender.send(SIGNUP_FAILURE, error)
   }
 }
 
-const signin = ({ sender }, { username, password }) => {
+const signin = async ({ sender }, { username, password }) => {
   try {
-    // axios.post(serverUrl + '/api/auth/signin', { username, password })
-    //   .then(res => res.data)
-    //   .then(user => {
-    //     console.log('User', user)
-    //     console.log('signed in')
-    //     updateConfig(user)
-    //   })
-    //   .catch(error => {
-    //     console.log('signing in ERROR', error.response.data.error.message)
-    //     sender.send(SIGNIN_FAILURE, error.response.data.error.message)
-    //   })
+    const res = await axios.post(serverUrl + '/api/auth/signin', { username, password })
+    const user = res.data
 
-    // console.log('signing in ', serverUrl + '/api/auth/signin')
-    axios.post(serverUrl + '/api/auth/signin', { username, password })
-      .then(res => res.data)
-      .then(user => {
-        console.log('User', user)
-        updateConfig(user)
-        sender.send(SIGNIN, user)
-        console.log('signed in')
-      })
-      .catch(error => {
-        console.log('signing in ERROR', error.response.data.error.message)
-        sender.send(SIGNIN_FAILURE, error.response.data.error.message)
-      })
+    updateConfig(user)
 
-    // const user = await api.handleAuth('signin', { username, password })
+    sender.send(SIGNIN_SUCCESS, user)
+
+    console.log('signed in', user)
   } catch (error) {
-    console.log('signing in ERROR', error)
-    sender.send(SIGNIN_FAILURE, error)
+    const msg = error.response && error.response.data.error.message
+
+    console.log('signing in ERROR', msg || error)
+    sender.send(SIGNIN_FAILURE, msg || error)
   }
 }
 
