@@ -30,7 +30,14 @@ export const Navbar = ({ children, ...props }) => {
               <li key='user-info-link'>
                 <Link to='/userinfo'>User Info</Link>
               </li>,
-              <li key='signout-link'><a href='#' onClick={signout}>Signout</a></li>
+
+              <li key='user-controls-link'>
+                <Link to='/control'>Control Panel</Link>
+              </li>,
+
+              <li key='signout-link'>
+                <a href='#' onClick={signout}>Signout</a>
+              </li>
             ]
             : [
               <li key='signin-link'><Link to='/signin'>Signin</Link></li>,
