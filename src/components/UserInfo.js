@@ -25,8 +25,8 @@ export const UserInfo = ({ children, ...props }) => {
   const keys = Object.keys(user)
 
   return (
-    <div>
-      <table className='table-fix'>
+    <div className='columns'>
+      <table className='table table-hover table-fix column col-10'>
         <thead>
           <tr>
             <th width='200'>Key</th>
@@ -41,7 +41,7 @@ export const UserInfo = ({ children, ...props }) => {
                 <td>
                   {
                     Array.isArray(user[key])
-                      ? user[key].join(' ') || '[ ]'
+                      ? user[key].join(', ') || '[ ]'
                       : user[key]
                   }
                 </td>

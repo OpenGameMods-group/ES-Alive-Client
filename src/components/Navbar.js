@@ -21,30 +21,50 @@ export const Navbar = ({ children, ...props }) => {
   const { signout, loggedIn, ...attributes } = props
 
   return (
-    <nav>
-      <ul className='menu align-center'>
-        <li><Link to='/'>Home</Link></li>
+    <nav class='navbar p-2'>
+      <section className='navbar-section'>
+        <Link to='/' className='btn btn-link'>Home</Link>
         {
           loggedIn
             ? [
-              <li key='user-info-link'>
-                <Link to='/userinfo'>User Info</Link>
-              </li>,
+              <Link
+                key='user-info-link'
+                to='/userinfo'
+                className='btn btn-link'>
+                User Info
+              </Link>,
 
-              <li key='user-controls-link'>
-                <Link to='/control'>Control Panel</Link>
-              </li>,
+              <Link
+                key='user-controls-link'
+                to='/control'
+                className='btn btn-link'>
+                Control Panel
+              </Link>,
 
-              <li key='signout-link'>
-                <a href='#' onClick={signout}>Signout</a>
-              </li>
+              <a
+                key='signout-link'
+                href='#'
+                onClick={signout}
+                className='btn btn-link'>
+                Signout
+              </a>
             ]
             : [
-              <li key='signin-link'><Link to='/signin'>Signin</Link></li>,
-              <li key='signup-link'><Link to='/signup'>Signup</Link></li>
+              <Link
+                key='signin-link'
+                to='/signin'
+                className='btn btn-link'>
+                Signin
+              </Link>,
+              <Link
+                key='signup-link'
+                to='/signup'
+                className='btn btn-link'>
+                Signup
+              </Link>
             ]
         }
-      </ul>
+      </section>
     </nav>
   )
 }

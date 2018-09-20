@@ -24,14 +24,17 @@ class App extends Component {
           <Navbar />
 
           <main className='container'>
-            <div className='callout'>
-              <h5>Directory</h5>
-              <p>
-                Detected directory:
-                <span className='text-info'>
-                  { this.props.config ? this.props.config.currentDir : 'unknown'}
-                </span>
-              </p>
+
+            <div className='tile'>
+              <div className='tile-content'>
+                <h5 className='tile-title'>Directory</h5>
+                <p className='tile-subtitle'>
+                  Detected directory:{' '}
+                  <span className='text-gray'>
+                    { this.props.config ? this.props.config.currentDir : 'unknown'}
+                  </span>
+                </p>
+              </div>
             </div>
 
             { Routes }

@@ -6,7 +6,7 @@ const config = require('scripts/config')
 
 const start = async () => {
   try {
-    // TODO: Sync Up
+    //  Sync Up
     // 1. click scan saves btn
     // 2. user chooses a save to update / create pilot on server
     // 3. pilot is parsed and info is displayed

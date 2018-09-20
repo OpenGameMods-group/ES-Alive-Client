@@ -6,7 +6,7 @@ import App from 'components/App'
 import configureStore from 'store/configureStore'
 
 import 'css/normalize.css'
-import 'css/foundation.min.css'
+import 'css/spectre.min.css'
 import 'css/index.css'
 
 const store = configureStore()

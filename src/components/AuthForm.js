@@ -32,37 +32,45 @@ class AuthForm extends Component {
   render () {
     const { authType } = this.props
     return (
-      <form>
-        <div className='grid-container'>
-          <div className='grid-x grid-padding-x'>
-            <div className='medium-10 medium-offset-1 cell'>
-              <label>
+      <form className='columns'>
+        <div className='column col-8'>
+
+          <div className='form-group'>
+            <label className='form-label'>
                 Username
-                <input
-                  onChange={this.handleChange}
-                  value={this.state.username}
-                  name='username'
-                  type='text'
-                  placeholder='username' />
-              </label>
-            </div>
-            <div className='medium-10 medium-offset-1 cell'>
-              <label>
-                Password
-                <input
-                  onChange={this.handleChange}
-                  value={this.state.password}
-                  name='password'
-                  type='password'
-                  placeholder='password' />
-              </label>
-            </div>
-            <div className='cell medium-offset-1 medium-10'>
-              <button className='button' onClick={this.handleSubmit}>
-                {authType}
-              </button>
-            </div>
+              <input
+                onChange={this.handleChange}
+                value={this.state.username}
+                name='username'
+                type='text'
+                placeholder='username'
+                className='form-input'
+                required
+              />
+            </label>
           </div>
+
+          <div className='form-group'>
+            <label className='form-label'>
+                Password
+              <input
+                onChange={this.handleChange}
+                value={this.state.password}
+                name='password'
+                type='password'
+                placeholder='password'
+                className='form-input'
+                required
+              />
+            </label>
+          </div>
+
+          <div>
+            <button className='btn' onClick={this.handleSubmit}>
+              {authType}
+            </button>
+          </div>
+
         </div>
       </form>
     )
