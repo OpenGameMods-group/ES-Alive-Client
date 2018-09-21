@@ -22,6 +22,7 @@ export default (state = defaultState, action) => {
         pilotData: action.payload
       }
     case GET_SAVES_FAILURE:
+      console.log(GET_SAVES_FAILURE, action)
       return state
     default:
       return state

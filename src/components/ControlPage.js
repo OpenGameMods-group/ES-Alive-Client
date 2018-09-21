@@ -8,13 +8,15 @@ import { savesActions } from 'store/actions'
 const propTypes = {
   children: PropTypes.node,
   getSaves: PropTypes.func,
-  pilotsDir: PropTypes.array
+  saveDir: PropTypes.array,
+  pilotData: PropTypes.object
 }
 
 const defaultProps = {
   children: null,
   getSaves: null,
-  pilotsDir: []
+  saveDir: [],
+  pilotData: null
 }
 
 // TODO: Sync Up
@@ -29,7 +31,7 @@ const defaultProps = {
 // 9. Store returned data in file storage
 
 export const ControlPage = ({ children, ...props }) => {
-  const { getSaves, pilotsDir, ...attributes } = props
+  const { getSaves, saveDir, pilotData, ...attributes } = props
 
   console.log(props)
 
@@ -47,7 +49,7 @@ export const ControlPage = ({ children, ...props }) => {
 
         <ul>
           {
-            pilotsDir.map((pilot, i) =>
+            saveDir.map((pilot, i) =>
               <li key={pilot + i}>
                 <span className='btn btn-link'>{pilot}</span>
               </li>
@@ -70,8 +72,9 @@ export const ControlPage = ({ children, ...props }) => {
 ControlPage.propTypes = propTypes
 ControlPage.defaultProps = defaultProps
 
-const mapStateToProps = ({ pilotsDir }, ownProps) => ({
-  pilotsDir
+const mapStateToProps = ({ saves: { saveDir, pilotData } }, ownProps) => ({
+  saveDir,
+  pilotData
 })
 
 export default connect(mapStateToProps, { ...savesActions })(ControlPage)
