@@ -15,8 +15,6 @@ const defaultProps = {
 export const DirTile = ({ children, ...props }) => {
   const { config, ...attributes } = props
 
-  console.log(config)
-
   return (
     <div>
       <div className='tile'>

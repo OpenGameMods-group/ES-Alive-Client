@@ -1,13 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
 import DirTile from 'components/DirTile'
+import { savesActions } from 'store/actions'
 
 const propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  getSaves: PropTypes.func,
+  pilotsDir: PropTypes.array
 }
 
 const defaultProps = {
-  children: null
+  children: null,
+  getSaves: null,
+  pilotsDir: []
 }
 
 // TODO: Sync Up
@@ -22,7 +29,9 @@ const defaultProps = {
 // 9. Store returned data in file storage
 
 export const ControlPage = ({ children, ...props }) => {
-  const { ...attributes } = props
+  const { getSaves, pilotsDir, ...attributes } = props
+
+  console.log(props)
 
   return (
     <div>
@@ -32,11 +41,19 @@ export const ControlPage = ({ children, ...props }) => {
 
       <p>Saves: </p>
       <ul>
-        <li>save 1</li>
-        <li>save 2</li>
+        {
+          pilotsDir.map((pilot, i) =>
+            <li key={pilot + i}>{pilot}</li>
+          )
+        }
       </ul>
 
-      <button className='btn m-2'>Scan Saves</button>
+      <button
+        className='btn m-2'
+        onClick={() => getSaves()}
+      >
+        Scan Saves
+      </button>
       <button className='btn m-2'>Change Save Directory</button>
     </div>
   )
@@ -45,4 +62,8 @@ export const ControlPage = ({ children, ...props }) => {
 ControlPage.propTypes = propTypes
 ControlPage.defaultProps = defaultProps
 
-export default ControlPage
+const mapStateToProps = ({ pilotsDir }, ownProps) => ({
+  pilotsDir
+})
+
+export default connect(mapStateToProps, { ...savesActions })(ControlPage)

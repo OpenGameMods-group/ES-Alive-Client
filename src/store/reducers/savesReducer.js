@@ -1,9 +1,7 @@
 
 import { GET_SAVES, GET_SAVES_SUCCESS, GET_SAVES_FAILURE } from 'store/actions/types'
 
-const defaultState = {
-  saves: null
-}
+const defaultState = []
 
 export default (state = defaultState, action) => {
   switch (action.type) {
