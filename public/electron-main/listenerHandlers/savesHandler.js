@@ -1,10 +1,6 @@
-const { app } = require('electron')
-
 const channels = require('../channels')
 const { currentDir } = require('../config')
 const save = require('../data-tools/save')
-
-const dataPath = app.getPath('userData')
 
 const getSaves = async ({ sender }, dir = currentDir) => {
   try {
@@ -16,6 +12,18 @@ const getSaves = async ({ sender }, dir = currentDir) => {
   }
 }
 
+const readSave = async ({ sender }, pilotName) => {
+  try {
+    const pilotFile = await save.readSaveFile(pilotName)
+    const pilotData = await save.parseAndValidate(pilotFile)
+
+    sender.send(channels.GET_SAVE_SUCCESS, pilotData)
+  } catch (error) {
+    sender.send(channels.GET_SAVE_FAILURE, error)
+  }
+}
+
 module.exports = {
-  getSaves
+  getSaves,
+  readSave
 }

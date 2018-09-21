@@ -17,6 +17,7 @@ const createListeners = (mainWindow) => {
   ipcMain.on(channels.SIGNIN, authHandler.signin)
   ipcMain.on(channels.GET_USER, configHandler.getUser)
   ipcMain.on(channels.GET_SAVES, savesHandler.getSaves)
+  ipcMain.on(channels.READ_SAVE, savesHandler.readSave)
 }
 
 module.exports = createListeners
