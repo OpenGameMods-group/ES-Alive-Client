@@ -9,5 +9,5 @@ import savesReducer from './savesReducer'
 export default combineReducers({
   config: configReducer,
   user: userReducer,
-  pilotsDir: savesReducer
+  saves: savesReducer
 })
