@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import DirTile from 'components/DirTile'
 
 const propTypes = {
   children: PropTypes.node
@@ -25,7 +26,18 @@ export const ControlPage = ({ children, ...props }) => {
 
   return (
     <div>
-      ControlPage
+      <h1>Control Panel</h1>
+
+      <DirTile />
+
+      <p>Saves: </p>
+      <ul>
+        <li>save 1</li>
+        <li>save 2</li>
+      </ul>
+
+      <button className='btn m-2'>Scan Saves</button>
+      <button className='btn m-2'>Change Save Directory</button>
     </div>
   )
 }

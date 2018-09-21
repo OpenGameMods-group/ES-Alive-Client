@@ -21,7 +21,7 @@ export const Navbar = ({ children, ...props }) => {
   const { signout, loggedIn, ...attributes } = props
 
   return (
-    <nav class='navbar p-2'>
+    <nav className='navbar p-2'>
       <section className='navbar-section'>
         <Link to='/' className='btn btn-link'>Home</Link>
         {
