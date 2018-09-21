@@ -34,27 +34,35 @@ export const ControlPage = ({ children, ...props }) => {
   console.log(props)
 
   return (
-    <div>
-      <h1>Control Panel</h1>
+    <div className='columns'>
+      <div className='column col-10'>
+        <h1>Control Panel</h1>
 
-      <DirTile />
+        <DirTile />
 
-      <p>Saves: </p>
-      <ul>
-        {
-          pilotsDir.map((pilot, i) =>
-            <li key={pilot + i}>{pilot}</li>
-          )
-        }
-      </ul>
+        <p>
+        Saves: <br />
+          <small className='gray'>Select a pilot to scan</small>
+        </p>
 
-      <button
-        className='btn m-2'
-        onClick={() => getSaves()}
-      >
+        <ul>
+          {
+            pilotsDir.map((pilot, i) =>
+              <li key={pilot + i}>
+                <span className='btn btn-link'>{pilot}</span>
+              </li>
+            )
+          }
+        </ul>
+
+        <button
+          className='btn m-2'
+          onClick={() => getSaves()}
+        >
         Scan Saves
-      </button>
-      <button className='btn m-2'>Change Save Directory</button>
+        </button>
+        <button className='btn m-2'>Change Save Directory</button>
+      </div>
     </div>
   )
 }
