@@ -6,7 +6,7 @@ import {
 
 const defaultState = {
   saveDir: [],
-  pilotData: {}
+  pilotData: null
 }
 
 export default (state = defaultState, action) => {

@@ -31,7 +31,7 @@ const defaultProps = {
 // 9. Store returned data in file storage
 
 export const ControlPage = ({ children, ...props }) => {
-  const { getSaves, saveDir, pilotData, ...attributes } = props
+  const { getSaves, readSave, saveDir, pilotData, ...attributes } = props
 
   console.log(props)
 
@@ -51,7 +51,9 @@ export const ControlPage = ({ children, ...props }) => {
           {
             saveDir.map((pilot, i) =>
               <li key={pilot + i}>
-                <span className='btn btn-link'>{pilot}</span>
+                <span onClick={() => readSave(pilot)} className='btn btn-link'>
+                  {pilot}
+                </span>
               </li>
             )
           }
@@ -61,9 +63,93 @@ export const ControlPage = ({ children, ...props }) => {
           className='btn m-2'
           onClick={() => getSaves()}
         >
-        Scan Saves
+          Scan Saves
         </button>
+
         <button className='btn m-2'>Change Save Directory</button>
+
+        <button className='btn m-2'>Upload Pilot</button>
+
+        <hr />
+
+        {
+          pilotData && (
+
+            <div>
+              <h2>Scanned Pilot Data:</h2>
+
+              <h3>Stats</h3>
+              <table className='table table-hover table-fix'>
+                <thead>
+                  <tr>
+                    <th width='200'>Stat</th>
+                    <th width='150'>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td>{pilotData.name}</td>
+                  </tr>
+                  <tr>
+                    <td>Faction</td>
+                    <td>{pilotData.faction}</td>
+                  </tr>
+                  <tr>
+                    <td>Credits</td>
+                    <td>{pilotData.credits}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>Rejected Ships: {pilotData.ships.rejected.length}</h3>
+
+              <table className='table table-hover table-fix'>
+                <thead>
+                  <tr>
+                    <th width='200'>Name</th>
+                    <th width='150'>Ship Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    pilotData.ships.rejected.map((ship, i) => (
+                      <tr key={ship.name + i}>
+                        <td>{ship.name}</td>
+                        <td>
+                          {ship._value}
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+
+              <h3>Valid Ships: {pilotData.ships.valid.length}</h3>
+              <table className='table table-hover table-fix'>
+                <thead>
+                  <tr>
+                    <th width='200'>Name</th>
+                    <th width='150'>Ship Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    pilotData.ships.valid.map((ship, i) => (
+                      <tr key={ship.name + i}>
+                        <td>{ship.name}</td>
+                        <td>
+                          {ship._value}
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          )
+        }
+
       </div>
     </div>
   )

@@ -20,9 +20,9 @@ const readSave = async ({ sender }, pilotName) => {
     const pilotFile = await save.readSaveFile(pilotName)
     const pilotData = await save.parseAndValidate(pilotFile)
 
-    sender.send(channels.GET_SAVE_SUCCESS, pilotData)
+    sender.send(channels.READ_SAVE_SUCCESS, pilotData)
   } catch (error) {
-    sender.send(channels.GET_SAVE_FAILURE, error)
+    sender.send(channels.READ_SAVE_FAILURE, error)
   }
 }
 

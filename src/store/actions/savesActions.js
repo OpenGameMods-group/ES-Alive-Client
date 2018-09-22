@@ -26,6 +26,7 @@ export const getSaves = (dirname) => dispatch => {
 
 export const readSave = (pilotName) => dispatch => {
   try {
+    console.log('reading', pilotName)
     dispatch({ type: READ_SAVE })
 
     listenersWrapper({
