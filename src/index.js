@@ -9,6 +9,11 @@ import 'css/normalize.css'
 import 'css/spectre.min.css'
 import 'css/index.css'
 
+if (process.env.NODE_ENV !== 'production') {
+  const {whyDidYouUpdate} = require('why-did-you-update')
+  whyDidYouUpdate(React)
+}
+
 const store = configureStore()
 
 ReactDOM.render(

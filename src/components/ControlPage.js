@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import DirTile from 'components/DirTile'
-import { savesActions } from 'store/actions'
+import { savesActions, pilotActions } from 'store/actions'
 
 const propTypes = {
   children: PropTypes.node,
@@ -31,7 +31,7 @@ const defaultProps = {
 // 9. Store returned data in file storage
 
 export const ControlPage = ({ children, ...props }) => {
-  const { getSaves, readSave, saveDir, pilotData, ...attributes } = props
+  const { getSaves, readSave, saveDir, pilotData, uploadPilot, user, ...attributes } = props
 
   console.log(props)
 
@@ -68,7 +68,7 @@ export const ControlPage = ({ children, ...props }) => {
 
         <button className='btn m-2'>Change Save Directory</button>
 
-        <button className='btn m-2'>Upload Pilot</button>
+        <button className='btn m-2' onClick={() => uploadPilot(user, pilotData)}>Upload Pilot</button>
 
         <hr />
 
@@ -158,9 +158,10 @@ export const ControlPage = ({ children, ...props }) => {
 ControlPage.propTypes = propTypes
 ControlPage.defaultProps = defaultProps
 
-const mapStateToProps = ({ saves: { saveDir, pilotData } }, ownProps) => ({
+const mapStateToProps = ({ saves: { saveDir, pilotData }, user }, ownProps) => ({
   saveDir,
-  pilotData
+  pilotData,
+  user
 })
 
-export default connect(mapStateToProps, { ...savesActions })(ControlPage)
+export default connect(mapStateToProps, { ...savesActions, ...pilotActions })(ControlPage)

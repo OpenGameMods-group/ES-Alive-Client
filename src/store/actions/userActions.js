@@ -12,6 +12,7 @@ export const getUser = (lastUser) => dispatch => {
     dispatch({ type: GET_USER, user: lastUser })
 
     listenersWrapper({ dispatch, listeners: [ GET_USER_SUCCESS, GET_USER_FAILURE ] })
+
     ipcRenderer.send(GET_USER, lastUser)
   } catch (error) {
     cleanListeners(GET_USER_SUCCESS, GET_USER_FAILURE)
