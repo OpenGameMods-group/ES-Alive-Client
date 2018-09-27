@@ -22,6 +22,8 @@ export const UserInfo = ({ children, ...props }) => {
     return <div><p>Not logged in</p></div>
   }
 
+  console.log(props)
+
   const keys = Object.keys(user)
 
   return (
@@ -42,7 +44,7 @@ export const UserInfo = ({ children, ...props }) => {
                   {
                     Array.isArray(user[key])
                       ? user[key].join(', ') || '[ ]'
-                      : user[key]
+                      : JSON.stringify(user[key])
                   }
                 </td>
               </tr>

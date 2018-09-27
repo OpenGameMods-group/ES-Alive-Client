@@ -9,16 +9,23 @@ const setTokenHeader = require('../services/api/setTokenHeader')
 const uploadPilot = async ({ sender }, { user, pilotData }) => {
   try {
     const { name, faction, credits } = pilotData
-    const { _id: userId, token } = user
+    const { _id: userId, token, pilots: pilotsInConfig } = user
+
+    let pilotId = Object.keys(pilotsInConfig).filter(id => pilotsInConfig[id].name === name)[0]
 
     setTokenHeader(token)
 
-    const res = await axios.post(serverUrl + `/api/players/${userId}/new`, { name, faction, credits })
-    const pilot = res.data
+    if (pilotId) {
+      // use pilot id from config
+      console.log('pilot is in config', pilotId)
+    } else {
+      const newPilotRes = await axios.post(serverUrl + `/api/players/${userId}/new`, { name, faction, credits })
+      const newPilot = newPilotRes.data
 
-    console.log('new/got', pilot)
+      console.log('new pilot', newPilot)
 
-    const { _id: pilotId } = pilot
+      pilotId = newPilot._id
+    }
 
     const shipsToUpload = pilotData.ships.valid.slice(0, 10).map(formatShip)
 
@@ -29,9 +36,21 @@ const uploadPilot = async ({ sender }, { user, pilotData }) => {
 
     const { ships, ...pilot } = uploadRes.data
 
+    // TODO: update config from server
     // TODO: put user's pilot data in storage
 
     sender.send(UPLOAD_PILOT_SUCCESS, { ships, pilot })
+
+    updateConfig({
+      ...user,
+      pilots: {
+        ...user.pilots,
+        [pilot._id]: {
+          ...pilot,
+          ships: ships.map(s => s._id)
+        }
+      }
+    })
   } catch (error) {
     console.log(error, error.response.data.error.message)
     sender.send(UPLOAD_PILOT_FAILURE, error)
