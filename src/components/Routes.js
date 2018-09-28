@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import AuthForm from 'components/AuthForm'
 import UserInfo from 'components/UserInfo'
 import ControlPage from 'components/ControlPage'
+import PersonDownloader from 'components/PersonDownloader'
 
 import { SIGNUP, SIGNIN } from 'store/actions/types'
 
@@ -13,6 +14,7 @@ export default (
   <Switch>
     <Route exact path='/userinfo' component={UserInfo} />
     <Route exact path='/control' component={ControlPage} />
+    <Route exact path='/person-downloader' component={PersonDownloader} />
 
     <Route exact path='/signup'
       render={(props) => <AuthForm {...props} authType={SIGNUP} />} />

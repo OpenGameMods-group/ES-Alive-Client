@@ -41,6 +41,13 @@ export const Navbar = ({ children, ...props }) => {
                 Control Panel
               </Link>,
 
+              <Link
+                key='person-downloader-link'
+                to='/person-downloader'
+                className='btn btn-link'>
+                Download Persons
+              </Link>,
+
               <a
                 key='signout-link'
                 href='#'
