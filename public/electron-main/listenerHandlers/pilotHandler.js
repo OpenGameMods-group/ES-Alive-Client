@@ -1,4 +1,5 @@
 const axios = require('axios')
+const fs = require('fs')
 
 const { serverUrl } = require('../config')
 const {
@@ -8,6 +9,8 @@ const {
 const { updateConfig } = require('./configHandler')
 const { formatShip } = require('../data-tools/validate')
 const setTokenHeader = require('../services/api/setTokenHeader')
+
+const { personCreator } = require('../data-tools/json-to-game/personCreator')
 
 const uploadPilot = async ({ sender }, { user, pilotData }) => {
   try {
@@ -65,7 +68,7 @@ const downloadPilots = async ({ sender }, { user, levelLimit }) => {
 
     const res = await axios.post(
       serverUrl + `/api/players/${userId}?level=${levelLimit}`,
-      { downloadedPilots: persons }
+      { downloadedPilots: {} }
     )
 
     const downloadedPilots = res.data
@@ -79,7 +82,9 @@ const downloadPilots = async ({ sender }, { user, levelLimit }) => {
       return acc
     }, {})
 
-    console.log(downloadedPilots)
+    const gameStr = personCreator(downloadedPilots)
+
+    fs.writeFileSync('./test-game.txt', gameStr, 'utf-8')
 
     updateConfig({
       ...user,
@@ -89,7 +94,7 @@ const downloadPilots = async ({ sender }, { user, levelLimit }) => {
       }
     })
   } catch (error) {
-    console.log(error, error.response.data.error.message)
+    console.log(error) // error.response.data.error.message
     sender.send(DOWNLOAD_PILOTS_FAILURE, error)
   }
 }
