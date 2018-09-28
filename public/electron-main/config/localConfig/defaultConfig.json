@@ -2,6 +2,6 @@
   "_id": null,
   "username": "Guest",
   "token": null,
-  "pilots": [],
-  "persons": []
+  "pilots": {},
+  "persons": {}
 }

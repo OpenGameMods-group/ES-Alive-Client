@@ -1,7 +1,10 @@
 const axios = require('axios')
 
 const { serverUrl } = require('../config')
-const { UPLOAD_PILOT, UPLOAD_PILOT_FAILURE, UPLOAD_PILOT_SUCCESS } = require('../channels')
+const {
+  UPLOAD_PILOT, UPLOAD_PILOT_FAILURE, UPLOAD_PILOT_SUCCESS,
+  DOWNLOAD_PILOTS, DOWNLOAD_PILOTS_FAILURE, DOWNLOAD_PILOTS_SUCCESS
+} = require('../channels')
 const { updateConfig } = require('./configHandler')
 const { formatShip } = require('../data-tools/validate')
 const setTokenHeader = require('../services/api/setTokenHeader')
@@ -36,9 +39,6 @@ const uploadPilot = async ({ sender }, { user, pilotData }) => {
 
     const { ships, ...pilot } = uploadRes.data
 
-    // TODO: update config from server
-    // TODO: put user's pilot data in storage
-
     sender.send(UPLOAD_PILOT_SUCCESS, { ships, pilot })
 
     updateConfig({
@@ -57,6 +57,44 @@ const uploadPilot = async ({ sender }, { user, pilotData }) => {
   }
 }
 
+const downloadPilots = async ({ sender }, { user, levelLimit }) => {
+  try {
+    const { _id: userId, token, persons } = user
+
+    setTokenHeader(token)
+
+    const res = await axios.post(
+      serverUrl + `/api/players/${userId}?level=${levelLimit}`,
+      { downloadedPilots: persons }
+    )
+
+    const downloadedPilots = res.data
+
+    sender.send(DOWNLOAD_PILOTS_SUCCESS, downloadedPilots)
+
+    // log download time and pilot id in config
+    const logPersons = downloadedPilots.reduce((acc, pilot) => {
+      acc[pilot._id] = Date.now()
+
+      return acc
+    }, {})
+
+    console.log(downloadedPilots)
+
+    updateConfig({
+      ...user,
+      persons: {
+        ...user.persons,
+        ...logPersons
+      }
+    })
+  } catch (error) {
+    console.log(error, error.response.data.error.message)
+    sender.send(DOWNLOAD_PILOTS_FAILURE, error)
+  }
+}
+
 module.exports = {
-  uploadPilot
+  uploadPilot,
+  downloadPilots
 }

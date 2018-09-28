@@ -22,6 +22,7 @@ const createListeners = (mainWindow) => {
   ipcMain.on(channels.READ_SAVE, savesHandler.readSave)
 
   ipcMain.on(channels.UPLOAD_PILOT, pilotHandler.uploadPilot)
+  ipcMain.on(channels.DOWNLOAD_PILOTS, pilotHandler.downloadPilots)
 }
 
 module.exports = createListeners
