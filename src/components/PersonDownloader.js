@@ -2,8 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import { pilotActions } from 'store/actions'
+
 const propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  downloadPilots: PropTypes.func
 }
 
 const defaultProps = {
@@ -33,6 +36,9 @@ class PersonDownloader extends React.Component {
   handleSubmit = (evt) => {
     evt.preventDefault()
     const { levelLimit } = this.state
+    const { user } = this.props
+
+    this.props.downloadPilots({user, levelLimit})
 
     window.localStorage.setItem('levelLimit', levelLimit)
   }
@@ -76,4 +82,8 @@ class PersonDownloader extends React.Component {
 PersonDownloader.propTypes = propTypes
 PersonDownloader.defaultProps = defaultProps
 
-export default PersonDownloader
+const mapStateToProps = ({ user }, ownProps) => ({
+  user
+})
+
+export default connect(mapStateToProps, { ...pilotActions })(PersonDownloader)
