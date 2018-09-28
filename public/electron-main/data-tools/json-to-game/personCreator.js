@@ -24,21 +24,20 @@ const createPerson = ({ships, ...pilot}) => {
   }, '')
 
   return `
-  
-  Person ${pilot.name}
-  \tgovernment ${pilot.faction}
-  \tfrequency 10000
-  \tpersonality
-  \t\tplunders
-  \tphrase
-  \t\tword
-  \t\t\t"I'm ${pilot.name} of the ${pilot.faction} and my fleet is level ${pilot.fleetLevel}"
-  \tship ${ship.ship}
-  \t\toutfits
+person "${pilot.name}"
+\tgovernment "${pilot.faction}"
+\tfrequency 10000
+\tpersonality
+\t\tplunders
+\tphrase
+\t\tword
+\t\t\t"I'm ${pilot.name.trim()} of the ${pilot.faction} and my fleet is level ${pilot.fleetLevel}"
+\tship ${ship.ship}
+\t\toutfits
 ${outfits}
 ${gun}
 ${turret}
-  `
+`
 }
 
 module.exports = {
